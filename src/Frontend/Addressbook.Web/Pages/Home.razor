@@ -1,0 +1,55 @@
+﻿@page "/"
+@using Addressbook.Models.Dtos
+@inject HttpClient Http
+
+<PageTitle>Home</PageTitle>
+
+<PageTitle>Address Book</PageTitle>
+
+<h1>Address Book</h1>
+
+
+@if (AddressBook == null)
+{
+    <p><em>Loading...</em></p>
+}
+else if (AddressBook.Count == 0)
+{
+    <p><em>No IPs available.</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>IP</th>
+                <th>Version</th>
+                <th>Timestamp</th>
+                <th>Device</th>
+                <th>MacAddress</th>
+                <th>Location</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var addressBook in AddressBook)
+            {
+                <tr>
+                    <td>@addressBook.IP</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code{
+    private List<IpAddressBookDto>? AddressBook;
+    protected override async Task OnInitializedAsync()
+    {
+       var response = await Http.GetAsync("https://localhost:7170/api/Addressbook/GetAll");
+       if (response.IsSuccessStatusCode)
+       {
+            AddressBook = await response.Content.ReadFromJsonAsync<List<IpAddressBookDto>>();
+       }
+    }
+}
