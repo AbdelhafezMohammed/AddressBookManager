@@ -12,6 +12,8 @@ namespace Addressbook.Domain
         public DbSet<IpAddressBook> Addressbook { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            //TODO: https://learn.microsoft.com/en-us/dotnet/csharp/linq/how-to-extend-linq
+            //TODO: https://learn.microsoft.com/en-us/ef/core/querying/user-defined-function-mapping
             modelBuilder.HasDbFunction(() => IpCustomSqlFunction.IsValidIpV4Address(default))
                     .HasName("IsValidIpV4Address");
 
