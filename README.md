@@ -62,5 +62,7 @@ Dotnet SDK V 8.0.203
 Dotnet CLI
 
 
- 
+# Out of scope
+
+Support CIDR Notation
 
