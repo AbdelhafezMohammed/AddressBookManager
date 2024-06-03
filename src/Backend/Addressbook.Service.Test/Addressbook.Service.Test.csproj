@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\src\Backend\Addressbook.Service\Addressbook.Service.csproj" />
+    <ProjectReference Include="..\Addressbook.Service\Addressbook.Service.csproj" />
   </ItemGroup>
 
   <ItemGroup>
