@@ -24,7 +24,8 @@
 Database migrations and seed data will run automatically when application starts however to run migrations manually navigate to path src/backend/Addressbook/Addressbook.API and open Terminal or CMD and run command
 `dotnet ef database update
 `
- **Start Database:**
+
+ **Install Database:**
  
  - using docker
    
